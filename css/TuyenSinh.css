@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital@1&family=Ubuntu:ital,wght@1,300&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+#main {}
+
+#header {
+    /* position: fixed; */
+    width: 100%;
+    height: 36px;
+    background-color: #303753;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+/* ---------------Begin:Introduce----------- */
+
+/* ----------------Begin:dia chi----------- */
+#location {
+    line-height: 36px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: inline-block;
+}
+
+#location .fa-location-dot {
+    padding-right: 15px;
+    color: #fff;
+    line-height: 36px;
+    display: inline-block;
+}
+
+#location h5 {
+    color: #fff;
+    line-height: 36px;
+    display: inline-block;
+}
+
+#location .location-text {
+    display: inline-block;
+}
+
+/* ------------End:dia chi----------------- */
+/* ------------Begin:so dien thoai--------- */
+#contact {
+    line-height: 36px;
+    display: inline-block;
+}
+
+#contact .fa-mobile-screen-button {
+    line-height: 36px;
+    color: #fff;
+    display: inline-block;
+    padding-right: 15px;
+}
+
+#contact .mobile-text {
+    line-height: 36px;
+    color: #fff;
+    display: inline-block;
+}
+
+/* ------------End:so dien thoai--------- */
+/* ------------Begin:icon-list--------- */
+#icon-list {
+    line-height: 36px;
+    display: inline-block;
+    float: right;
+    padding-right: 100px;
+}
+
+#icon-list .fa-facebook,
+#icon-list .fa-instagram,
+#icon-list .fa-google-plus-g {
+    color: #fff;
+    line-height: 36px;
+    letter-spacing: 16px;
+}
+
+/* ------------End:icon-list--------- */
+/* ---------------End:Introduce----------- */
+
+/* ---------------Begin:Nav----------- */
+#nav {
+    position: relative;
+    /* bottom:3px; */
+    margin-bottom: 3px;
+    width: 100%;
+    height: 108px;
+    background-color: #01969C;
+}
+
+#nav li {
+    position: relative;
+}
+
+#nav img {
+    height: 79px;
+    margin: 15px 15px 15px 35px;
+}
+
+#nav .nav_list {
+    list-style: none;
+    display: inline-block;
+    float: right;
+}
+
+#nav>.nav_list>li {
+    display: inline-block;
+    text-align: center;
+}
+
+.nav_list>li>a {
+    line-height: 108px;
+    padding: 0 15px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+}
+
+.nav_list>li:hover>a {
+    background-color: #fff;
+    color: #01969C;
+}
+
+#nav .fa-magnifying-glassti-search {
+    padding-left: 30px;
+    padding-right: 30px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* subnav--------------------------------- */
+#nav .subnav {
+    position: absolute;
+    width: 125.5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+    top: 150px;
+    transition: 0.1s;
+    list-style: none;
+}
+
+#nav .subnav li {
+    line-height: 70px;
+    cursor: pointer;
+}
+
+#nav li:hover .subnav {
+    visibility: visible;
+    top: 108px;
+}
+
+.subnav li a {
+    text-decoration: none;
+    display: inline-block;
+    color: #01969C;
+    width: 100%;
+}
+
+.subnav li:hover a {
+    background-color: #01969C;
+    color: #fff;
+}
+
+/* -------------------End: Header and Nav---------------- */
+#slider {
+    /* position: relative; */
+    background: url(/img/background_1.jpg) top center / cover no-repeat;
+    height: 940px;
+    margin-top: 110px;
+    width: 100%;
+}
+
+#cover {
+    display: flex;
+    background-image: url(/img/page.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 1100px;
+    margin: 7%;
+    width: 85%;
+    padding: 100px 30px;
+    border-radius: 10px;
+    border-color: rgb(138, 64, 121);
+    border-style: solid;
+}
+
+/* Begin form------------------------------------------------------- */
+
+#cover .form {
+    display: flex;
+    justify-content: center;
+}
+
+#cover .sub_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+    height: 100vh;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: rgba(50, 50, 93, 0, 25)0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    background-color: white;
+}
+
+#cover label {
+    padding-top: 16px;
+    opacity: 0.75;
+}
+
+#cover input {
+    display: flex;
+    border-radius: 50px;
+    border-style: none;
+    outline: none;
+    margin-top: 8px;
+    padding: 12px 24px;
+    width: 250px;
+    background-color: #EAEEED;
+}
+
+#cover input:focus {
+    opacity: 0.7;
+}
+
+#cover button {
+    padding: 12px 48px;
+    border-radius: 50px;
+    color: #fff;
+    margin-top: 1rem;
+    cursor: pointer;
+    outline: none;
+    border-width: 0;
+    background-color: #1a1b27;
+    font-weight: 600;
+    width: 100%;
+}
+
+#cover button:hover {
+    opacity: 0.8;
+}
+
+#cover video {
+    width: 710px;
+    margin-top: 50px;
+    height: 50%;
+    display: block;
+    margin-left: 30px;
+}
+
+/* End form------------------------------------------------------- */
+
+#footer {
+    position: absolute;
+    height: 500px;
+    width: 100%;
+    background-color: #71a340;
+}
+
+#footer .subfooter {
+    position: relative;
+    top: 50px;
+    height: 400px;
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    background-color: #c3f9c3;
+    border-radius: 20px;
+}
+
+#footer .text_box {
+    display: inline-block;
+    margin: 42px;
+    float: left;
+    border-right: color(#000);
+}
+
+#footer .text_box,
+#footer .text_box a {
+    list-style: none;
+    color: #000;
+    line-height: 30px;
+    text-decoration: none;
+}
+
+#footer .topic_box {
+    float: left;
+    margin: 42px;
+    color: #000;
+    text-align: center;
+}
+
+#footer .banner {
+    text-align: center;
+    margin-left: 143px;
+}
