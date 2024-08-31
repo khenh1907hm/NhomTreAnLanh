@@ -173,7 +173,7 @@
 /* ---------------End:Nav----------- */
 #slider {
     /* position: relative; */
-    background: url(img/background_1.jpg) top center / cover no-repeat;
+    background: url("../img/background_1.jpg") top center / cover no-repeat;
     height: 940px;
     margin-top: 110px;
     width: 100%;
@@ -365,4 +365,39 @@
 #footer .banner {
     text-align: center;
     margin-left: 143px;
+}
+
+/* Hover effect for the radio button and label */
+.question label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.question input[type="radio"]:hover+label,
+.question label:hover {
+    color: #007bff;
+    /* Highlight color */
+}
+
+.question input[type="radio"]:hover,
+.question input[type="radio"]:checked+label {
+    color: #007bff;
+    /* Highlight color */
+}
+
+/* Notification styles */
+.notification {
+    border: 1px solid #007bff;
+    padding: 8px;
+    margin-top: 10px;
+    background-color: #e7f3ff;
+    color: #007bff;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.vote-count {
+    font-weight: bold;
+    color: #007bff;
+    /* Màu xanh dương */
 }

@@ -1,37 +1,25 @@
 <?php
     session_start();
     include('../db/connet.php');
-    // if(isset($dangnhap)){
-    //     header('location:xulidanhmuc.php');
-    // }else{
-    //     header('location:dashboard.php');
-    // }
-    $sql_select = mysqli_query($con,"SELECT * FROM tbl_category ORDER BY category_id DESC");
+    $sql_select = mysqli_query($con,"SELECT * FROM tbl_contact ORDER BY contact_id DESC");
 
-    //thu moi
+    if(isset( $_POST["capnhatlienhe"])){
+        $id_post=$_POST['contact_id'];
+        $diachi=$_POST['diachi'];
+        $sdt=$_POST['sdt'];
+        $thoigian=$_POST['thoigian'];
+        $sql_update=mysqli_query($con,"UPDATE tbl_contact SET diachi= '$diachi',sdt= '$sdt',thoigian= '$thoigian'" );
+        header('Location:xulilienhe.php');
+    }
+
     $sql_number = mysqli_query($con,"SELECT * FROM tbl_dangky ORDER BY register_id DESC");
 
 
     $sql_count = mysqli_query($con, "SELECT COUNT(*) AS total FROM tbl_dangky");
     $row_count = mysqli_fetch_assoc($sql_count);
     $total_register = $row_count['total'];
-    //end: thư mới
 
-    if(isset($_POST['themdanhmuc'])){
-        $danhmuc=$_POST['danhmuc'];
-        $sql_insert=mysqli_query($con,"INSERT INTO tbl_category(category_name) value ('$danhmuc')");
-    }elseif(isset( $_POST["capnhatdanhmuc"])){
-        $id_post=$_POST['id_danhmuc'];
-        $danhmuc=$_POST['danhmuc'];
-        $sql_update=mysqli_query($con,"UPDATE tbl_category SET category_name= '$danhmuc' WHERE category_id = '$id_post'" );
-        // header('Location:xuludanhmuc.php');
-    }
 
-    if(isset($_GET['xoa'])){
-        $id=$_GET['xoa'];
-        $sql_delete=mysqli_query($con,"DELETE FROM tbl_category WHERE category_id= '$id'");
-        // header('Location:xuludanhmuc.php');
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +30,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Danh mục</title>
     <style>
-        li.nav-item.number{
+      li.nav-item.number{
             position:relative;
         }
         <?php
@@ -60,7 +48,7 @@
             right: -12px;
             top:-8px;
         }
-        .navbar .nav-link.active{
+        .navbar .nav-link{
             color:#fff;
         }
         .navbar{
@@ -85,15 +73,15 @@
             <a class="nav-link " aria-current="page" href="dashboard.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="xulidanhmuc.php">Danh mục</a>
+            <a class="nav-link" href="xulidanhmuc.php">Danh mục</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="xulibaiviet.php" >Bài viết</a>
+            <a class="nav-link" href="xulibaiviet.php">Bài viết</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="xulilienhe.php" >Liên Hệ</a>
+            <a class="nav-link active" href="xulilienhe.php">Liên Hệ</a>
           </li>
-          <li class="nav-item number">
+          <li class="nav-item number ">
             <a class="nav-link " href="xulithongtin.php" >Thư mới</a>
           </li>
         </ul>
@@ -109,54 +97,41 @@
             <?php
             if(isset($_GET['quanli'])=='capnhat'){
                 $id_capnhat= $_GET['id'];
-                $sql_capnhat= mysqli_query($con,"SELECT * FROM tbl_category WHERE category_id= '$id_capnhat'");
+                $sql_capnhat= mysqli_query($con,"SELECT * FROM tbl_contact WHERE contact_id= '$id_capnhat'");
                 $row_capnhat = mysqli_fetch_array($sql_capnhat);
             ?>
-            <div class="col-md-4">
-                <h4>Cập nhật danh mục</h4>
-                <label>Tên danh mục</label>
+            <div class="col-md-3">
+                <h4>Cập nhật liên hệ</h4>
+                <label>Tên liên hệ</label>
                 <form action="" method="POST">
-                    <input type="text" name="danhmuc" class="form-control"  value="<?php echo $row_capnhat['category_name'] ?>" ><br>
-                    <input type="hidden" name="id_danhmuc" class="form-control"  value="<?php echo $row_capnhat['category_id'] ?>">
-                    <input type="submit" name="capnhatdanhmuc" value="Cập nhật danh mục" class="btn btn-success" >
-                </form>
-            </div>
-            <?php
-            }else{
-                ?>
-            <div class="col-md-4">
-                <h4>Thêm danh mục</h4>
-                <?php
-                $sql_select= mysqli_query($con,"SELECT * FROM tbl_category ORDER BY category_id DESC")
-                ?>
-                <label>Tên danh mục</label>
-                <form action="" method="POST">
-                    <input type="text" name="danhmuc" class="form-control" placeholder="" ><br>
-                    <input type="submit" name="themdanhmuc" value="Thêm danh mục" class="btn btn-success" >
+                    <input type="text" name="diachi" class="form-control"  value="<?php echo $row_capnhat['diachi'] ?>" ><br>
+                    <input type="hidden" name="contact_id" class="form-control"  value="<?php echo $row_capnhat['contact_id'] ?>">
+                    <input type="text" name="sdt" class="form-control"  value="<?php echo $row_capnhat['sdt'] ?>" ><br>
+                    <input type="text" name="thoigian" class="form-control"  value="<?php echo $row_capnhat['thoigian'] ?>" ><br>
+                    <input type="submit" name="capnhatlienhe" value="Cập nhật liên hệ" class="btn btn-success" >
                 </form>
             </div>
             <?php
             }
             ?>
             
-            <div class="col-md-8">
-                <h4>liệt kê danh mục</h4>
+            <div class="col-md-9">
+                <h4>Liên hệ</h4>
                 <table class="table table-responsive table-bordered table-tripped">
                     <tr>
-                        <th>STT</th>
-                        <th>Tên Danh Mục</th>
+                        <th>Địa chỉ</th>
+                        <th>Hotline</th>
+                        <th>Thời gian hoạt động</th>
                         <th>Quản Lí</th>
                     </tr>
                     <?php
-                    $i=0;
                     while($row= mysqli_fetch_array($sql_select)){
-                        $i++;
                     ?>
                     <tr>
-                        <th><?php echo  $i ?></th>
-                        <th><?php echo $row['category_name'] ?></th>
-                        <th class=" d-flex justify-content-center align-items-center"><a style="color:red;text-decoration: none !important;" href="?xoa=<?php echo $row['category_id'] ?>"> Xóa &nbsp; <i class="fa-solid fa-trash"></i></a> &nbsp;&nbsp; ||
-                        &nbsp;&nbsp; <a style="text-decoration: none !important;" href="?quanli=capnhat&id=<?php echo $row['category_id'] ?>"> Cập nhật &nbsp; <i class="fa-regular fa-pen-to-square"></i></a></th>
+                        <th><?php echo $row['diachi'] ?></th>
+                        <th><?php echo $row['sdt'] ?></th>
+                        <th><?php echo $row['thoigian'] ?></th>
+                        <th class=" d-flex justify-content-center align-items-center">&nbsp;&nbsp; <a style="text-decoration: none !important;" href="?quanli=capnhat&id=<?php echo $row['contact_id'] ?>"> Cập nhật &nbsp; <i class="fa-regular fa-pen-to-square"></i></a></th>
                     </tr>
                     <?php } ?>
                 </table>

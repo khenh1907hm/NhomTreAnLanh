@@ -26,27 +26,27 @@
               </a>
             </li>
             <li>
-              <a href="PhuHuynh.html">Góc Phụ Huynh</a>
+              <a href="PhuHuynh.php">Góc Phụ Huynh</a>
             </li>
             <li>
               <a style="width: 125.5px" href="#">Góc của bé ♥</a>
               <ul class="subnav">
                 <li>
-                  <a href="ThucDon.html">Thực đơn</a>
+                  <a href="ThucDon.php">Thực đơn</a>
                 </li>
                 <li>
-                  <a href="LichHoc.html">Lịch học</a>
+                  <a href="LichHoc.php">Lịch học</a>
                 </li>
               </ul>
             </li>
             <li>
-              <a style="width: 125.5px" href="BangTin.html">Bản Tin</a>
+              <a style="width: 125.5px" href="BangTin.php">Bản Tin</a>
             </li>
             <li>
-              <a href="TuyenSinh.html">Tuyển Sinh</a>
+              <a href="TuyenSinh.php">Tuyển Sinh</a>
             </li>
             <li>
-              <a style="width: 108px" href="LienHe.html">Liên Hệ</a>
+              <a style="width: 108px" href="LienHe.php">Liên Hệ</a>
             </li>
             <i class="fa-solid fa-magnifying-glass"></i>
           </ul>

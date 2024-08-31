@@ -2,7 +2,7 @@
         <button id="scrollTopButton"><i class="fa-solid fa-arrow-up"></i></button>
         <div class="video_background">
           <video autoplay muted loop>
-            <source src="/img/videokid.mp4" type="video/mp4" />
+            <source src="img/videokid.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <!-- End:video -->
@@ -66,16 +66,25 @@
           <img src="img/reason_3.jpg" alt="reason" />
         </div>
         <div class="survey">
-          <h4>Bạn quan tâm điều gì nhất khi con đến trường ?</h4>
-          <div class="question">
-            <input type="radio" />Con được học và chơi gì ?<br />
-            <input type="radio" />"Khi đến trường cô giáo như mẹ hiền"<br />
-            <input type="radio" />Con được ăn gì? Uống gì? Ngủ ngon không<br />
-            <input type="radio" />Tất cả ý kiến trên<br />
-          </div>
-          <div class="answer">
-            <button style="padding: 8px">Bình chọn</button>
-            <button style="padding: 8px">Kết quả</button>
-          </div>
-        </div>
+  <h4>Bạn quan tâm điều gì nhất khi con đến trường ?</h4>
+  <div class="question">
+    <label for="option1"><input type="radio" name="survey" id="option1" value="option1" /> Con được học và chơi gì?</label><br />
+    <label for="option2"><input type="radio" name="survey" id="option2" value="option2" /> "Khi đến trường cô giáo như mẹ hiền"</label><br />
+    <label for="option3"><input type="radio" name="survey" id="option3" value="option3" /> Con được ăn gì? Uống gì? Ngủ ngon không</label><br />
+    <label for="option4"><input type="radio" name="survey" id="option4" value="option4" /> Tất cả ý kiến trên</label><br />
+  </div>
+  <div class="answer">
+    <button id="voteButton" style="padding: 8px">Bình chọn</button>
+    <button id="resultButton" style="padding: 8px">Kết quả</button>
+  </div>
+  <div id="notification" style="display:none;" class="notification">
+    <p id="notificationText"></p>
+  </div>
+  <div id="resultDisplay" style="display:none;">
+    <p>Con được học và chơi gì?: <span style="font-weight:bold; color: brown" id="result1">0</span></p>
+    <p>"Khi đến trường cô giáo như mẹ hiền": <span style="font-weight:bold; color: brown" id="result2">0</span></p>
+    <p>Con được ăn gì? Uống gì? Ngủ ngon không: <span style="font-weight:bold; color: brown" id="result3">0</span></p>
+    <p>Tất cả ý kiến trên: <span style="font-weight:bold; color: brown" id="result4">0</span></p>
+  </div>
+</div>
       </div>

@@ -1,3 +1,6 @@
+<?php
+  include('db/connet.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +30,7 @@
       </div>
       <div id="contact">
         <i class="fa-solid fa-mobile-screen-button"></i>
-        <h5 class="mobile-text">0839395281 - 0559776768</h5>
+        <h5 style=" font-size:15px;" class="mobile-text">0839395281 - 0559776768</h5>
       </div>
       <div id="icon-list">
         <i class="fa-brands fa-facebook"></i>
@@ -39,33 +42,33 @@
         <img src="img/mainlogo.png" alt="logo" />
         <ul class="nav_list">
           <li>
-            <a href="Home.html"
+            <a href="Home.php"
               ><i class="fa-solid fa-house"></i>
               Trang Chủ
             </a>
           </li>
           <li>
-            <a href="PhuHuynh.html">Góc Phụ Huynh</a>
+            <a href="PhuHuynh.php">Tin tức mới</a>
           </li>
           <li>
             <a style="width: 125.5px" href="#">Góc của bé ♥</a>
             <ul class="subnav">
               <li>
-                <a href="ThucDon.html">Thực đơn</a>
+                <a href="ThucDon.php">Thực đơn</a>
               </li>
               <li>
-                <a href="LichHoc.html">Lịch học</a>
+                <a href="LichHoc.php">Lịch học</a>
               </li>
             </ul>
           </li>
           <li>
-            <a style="width: 125.5px" href="/BangTin.html">Bản Tin</a>
+            <a style="width: 125.5px" href="BangTin.php">Bản Tin</a>
           </li>
           <li>
-            <a href="TuyenSinh.html">Tuyển Sinh</a>
+            <a href="TuyenSinh.php">Tuyển Sinh</a>
           </li>
           <li>
-            <a style="width: 108px" href="/LienHe.html">Liên Hệ</a>
+            <a style="width: 108px" href="/LienHe.php">Liên Hệ</a>
           </li>
           <i class="fa-solid fa-magnifying-glass"></i>
         </ul>
@@ -73,25 +76,32 @@
     </div>
   <div id="slider">
   <div id="cover">
-    <div id="content">
-      <div class="same_box">
+    <div style="display: flex;flex-direction: column;" id="content">
+      <!-- <div class="same_box">
         <img src="img/logo.png" alt="ảnh content">
         <p class="topic">Thông báo Về việc chi trả kinh phí hỗ trợ học phí cho học sinh học tháng 4 và 5 năm học 2021 - 2022 do ảnh hưởng của dịch Covid-19</p><br>
         <p>Thực hiện kế hoạch số 167/KH-BCĐ ngày 24/5/2021 của Ban chỉ đạo tuyển sinh Quận Hà Đông về việc tuyển sinh vào các trường mầm non, lớp 1, lớp 6 năm học 2021 - 2022;Căn cứ tình hình thực tế, Trường mầm non Hoa Mai thông báo về việc tuyển sinh năm học 2021 - 2022 cụ thể như sau</p>
-      </div>
-      <a style="text-decoration: none;" href="">
-        <div class="same_box">
+      </div> -->
+      <?php
+        $sql_baiviet= mysqli_query($con,'SELECT * FROM tbl_baiviet ORDER BY baiviet_id DESC');
+        while($row_baiviet=mysqli_fetch_array($sql_baiviet)){
+      ?>
+      <a style="display:inline-block;text-decoration: none;" href="Home.php?quanli=chitietbaiviet&id_baiviet=<?php echo $row_baiviet['baiviet_id']?>">
+        <div style="max-width: 1083px;" class="same_box">
           <div class="row">
-            <div class="col-md-4 d-flex justify-content-center"><img style="" src="img/logo.png" alt="ảnh content"></div>
+            <div class="col-md-4 d-flex justify-content-center"><img style="width:100%;padding:15px; " src="uploads/<?php echo $row_baiviet['baiviet_image']?>" alt="ảnh content"></div>
             <div class="col-md-8">
-              <p class="topic">Thông báo tuyển sinh năm học 2021 - 2022</p><br>
-              <p style="font-size:16px;">Thực hiện Nghị quyết số 08/NQ/2021/NQ-HĐND ngày 23/9/2021 của HĐND thành phố quy định mức thu học phí đối với các cơ sở giáo dục mầm non, giáo dục phổ thông công lập của Thành phố Hà Nội năm học 2021-2022 (sau đây gọi tắt là NQ08)Căn cứ Quyết định số 4942/QĐ-UBND ngày 26/10/2022 của UBND quận Hà Đông về việc cấp bổ sung dự toán chi NSNN năm 2022 để thực hiện hỗ trợ học phí học kỳ II năm học 2021 - 2022 do ảnh hưởng của dịch Covid-19 theo NQ08</p>
-              <span style="color:#2e2a2a;">Thời gian đăng bài: </span> <span>21/4/2003 21:30</span>
+              <p class="topic"><?php echo $row_baiviet['tenbaiviet']?></p><br>
+              <p style="font-size:16px;"><?php echo $row_baiviet['tomtat']?></p>
+              <span style="color:#2e2a2a;">Thời gian đăng bài: </span> <span><?php echo $row_baiviet['time']?></span>
             </div>
           </div>
         </div>
       </a>
-      <div class="same_box">
+      <?php
+        }
+      ?>
+      <!-- <div class="same_box">
         <img src="img/logo.png" alt="ảnh content">
         <p class="topic">Thông báo về việc nghỉ Lễ Giỗ Tổ Hùng Vương (mùng 10/3)</p><br>
         <p>Căn cứ Điều 115 quy định về ngày nghỉ Lễ, Tết tại Bộ luật Lao động, trường mầm non Hoa Mai trân trọng thông báo về thời gian nghỉ giao dịch trong dịp Lễ Giỗ Tổ Hùng Vương năm 2021</p><br>
@@ -101,7 +111,7 @@
         <img src="img/logo.png" alt="ảnh content">
         <p class="topic">Thông báo Về việc chi trả kinh phí hỗ trợ học phí cho học sinh học tháng 4 và 5 năm học 2021 - 2022 do ảnh hưởng của dịch Covid-19</p><br>
         <p>Thực hiện kế hoạch số 167/KH-BCĐ ngày 24/5/2021 của Ban chỉ đạo tuyển sinh Quận Hà Đông về việc tuyển sinh vào các trường mầm non, lớp 1, lớp 6 năm học 2021 - 2022;Căn cứ tình hình thực tế, Trường mầm non Hoa Mai thông báo về việc tuyển sinh năm học 2021 - 2022 cụ thể như sau</p>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

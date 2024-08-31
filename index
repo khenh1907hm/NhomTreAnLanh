@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/menu.css" />
+  </head>
+  <body>
+    <main>
+      <div class="navbar-container fix">
+        <div class="container">
+          <img
+            src="./img/logo.png"
+            style="width: 70px; height: 70px"
+            alt="logo"
+            class="logo"
+          />
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a href="">Tin tức</a>
+            </li>
+            <li class="nav-item">
+              <a href="">Góc của bé</a>
+            </li>
+            <li class="nav-item">
+              <a href="">Bản Tin</a>
+            </li>
+            <li class="nav-item">
+              <a href="">Tuyển Sinh</a>
+            </li>
+            <li class="nav-item">
+              <a href="">Liên Hệ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <header>
+        <div class="hero">
+          <div class="container">
+            <div class="info">
+              <p class="sub-title">Nơi nuôi dưỡng tài năng tương lai</p>
+              <h1 class="heading">Welcome to An Lanh private preschool</h1>
+              <p class="desc">
+                Chúng tôi cung cấp môi trường học tập an toàn, sáng tạo và đầy
+                cảm hứng cho trẻ em từ 2-6 tuổi.
+              </p>
+              <a href="#" class="btn">Tìm hiểu thêm</a>
+            </div>
+            <div class="box-img">
+              <img src="./img/hero.png" alt="Hero Image" class="img-hero" />
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Slider -->
+      <div class="slider">
+        <div class="container">
+          <div class="overview">
+            <h2 class="heading-over">Hoạt động của nhóm trẻ</h2>
+            <p class="desc"></p>
+          </div>
+          <div class="row">
+            <div class="slide">
+              <div
+                class="item"
+                style="background-image: url(./img/reason_1.jpg)"
+              ></div>
+              <div
+                class="item"
+                style="background-image: url(./img/reason_2.jpg)"
+              ></div>
+              <div
+                class="item"
+                style="background-image: url(./img/reason_3.jpg)"
+              ></div>
+              <div
+                class="item"
+                style="background-image: url(./img/reason_1.jpg)"
+              ></div>
+              <div
+                class="item"
+                style="background-image: url(./img/reason_2.jpg)"
+              ></div>
+              <div
+                class="item"
+                style="background-image: url(./img/reason_3.jpg)"
+              ></div>
+            </div>
+
+            <div class="button">
+              <button class="prev">
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+              <button class="next">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Img-employee -->
+      <div class="employee">
+        <div class="container">
+          <div class="employee-card">
+            <img src="./img/UIface.png" alt="employee" />
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="top-bar">
+          <div class="container">
+            <div class="support-item">
+              <i class="fas fa-phone-alt"></i>
+              Hỗ trợ 24/7
+            </div>
+            <div class="support-item">
+              <i class="fas fa-credit-card"></i>
+              Thanh toán an toàn
+            </div>
+            <div class="support-item">
+              <i class="fas fa-bus"></i>
+              Đưa đón tận nơi
+            </div>
+          </div>
+        </div>
+        <div class="main-footer">
+          <div class="container">
+            <div class="footer-logo">
+              <img src="./img/logo.png" alt="An Lanh Preschool" />
+              <div class="adress">
+                <p>
+                  <strong>Trường mầm non An Lành</strong> - Nơi nuôi dưỡng tài
+                  năng tương lai
+                </p>
+                <p>
+                  <i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận XYZ,
+                  TP. Hồ Chí Minh
+                </p>
+                <p><i class="fas fa-phone"></i> 1900 6750</p>
+              </div>
+            </div>
+            <div class="footer-links">
+              <h3>Về chúng tôi</h3>
+              <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="#">Chương trình học</a></li>
+                <li><a href="#">Liên hệ</a></li>
+              </ul>
+            </div>
+            <div class="footer-links">
+              <h3>Hỗ trợ phụ huynh</h3>
+              <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Hướng dẫn</a></li>
+                <li><a href="#">Chính sách</a></li>
+                <li><a href="#">Câu hỏi thường gặp</a></li>
+              </ul>
+            </div>
+            <div class="footer-newsletter">
+              <h3>Đăng ký nhận thông tin</h3>
+              <form>
+                <input type="email" placeholder="Email của bạn" />
+                <button type="submit">Đăng ký</button>
+              </form>
+              <div class="payment-methods">
+                <img
+                  src="./img/payment-methods.png"
+                  alt="Phương thức thanh toán"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-bar">
+          <div class="container">
+            <p>
+              &copy; Bản quyền thuộc về Trường mầm non An Lành | Thiết kế bởi
+              Minh Lê
+            </p>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <script>
+      let next = document.querySelector(".next");
+      let prev = document.querySelector(".prev");
+
+      next.addEventListener("click", function () {
+        let items = document.querySelectorAll(".item");
+        document.querySelector(".slide").appendChild(items[0]);
+      });
+
+      prev.addEventListener("click", function () {
+        let items = document.querySelectorAll(".item");
+        document.querySelector(".slide").prepend(items[items.length - 1]); // here the length of items = 6
+      });
+    </script>
+  </body>
+</html>

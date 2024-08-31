@@ -1,11 +1,27 @@
+<?php
+  include('db/connet.php');
+  if(isset($_POST['guithongtin'])){
+    $name_child=$_POST['name_child'];
+    $age=$_POST['age'];
+    $name_parent=$_POST['name_parent'];
+    $phone=$_POST['phone'];
+    $email=$_POST['email'];
+    $adress=$_POST['adress'];
+    $content=$_POST['content'];
+
+
+    $sql_update= mysqli_query($con,"INSERT INTO tbl_dangky(name_child,age,name_parent,phone,email,adress,content)
+    VALUE ('$name_child','$age','$name_parent','$phone','$email','$adress','$content')");
+  };
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goc Phu Huynh</title>
-    <link rel="stylesheet" href="css/LienHe.css">
-    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/TuyenSinh.css">
+    <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -38,68 +54,78 @@
         <img src="img/mainlogo.png" alt="logo" />
         <ul class="nav_list">
           <li>
-            <a href="Home.html"
+            <a href="Home.php"
               ><i class="fa-solid fa-house"></i>
               Trang Chủ
             </a>
           </li>
           <li>
-            <a href="PhuHuynh.html">Góc Phụ Huynh</a>
+            <a href="PhuHuynh.php">Bài viết</a>
           </li>
           <li>
             <a style="width: 125.5px" href="#">Góc của bé ♥</a>
             <ul class="subnav">
               <li>
-                <a href="ThucDon.html">Thực đơn</a>
+                <a href="ThucDon.php">Thực đơn</a>
               </li>
               <li>
-                <a href="LichHoc.html">Lịch học</a>
+                <a href="LichHoc.php">Lịch học</a>
               </li>
             </ul>
           </li>
           <li>
-            <a style="width: 125.5px" href="BangTin.html">Bản Tin</a>
+            <a style="width: 125.5px" href="BangTin.php">Bản Tin</a>
           </li>
           <li>
-            <a href="TuyenSinh.html">Tuyển Sinh</a>
+            <a href="TuyenSinh.php">Tuyển Sinh</a>
           </li>
           <li>
-            <a style="width: 108px" href="LienHe.html">Liên Hệ</a>
+            <a style="width: 108px" href="LienHe.php">Liên Hệ</a>
           </li>
           <i class="fa-solid fa-magnifying-glass"></i>
         </ul>
       </div>
     </div>
+  <div id="slider">
   <div id="cover">
-    <div class="box_content">
-        <div class="tilte"><h1>Thông Tin Liên Hệ </h1></div>
-        <img class="cloud_img" src="img/cloud.png" alt="đám mây">
-    </div>
-    <div id="slider">
-        <div class="icon_list">
-            <div class="location">
-                <i class="ti-location-pin"></i><b>Địa chỉ</b>
-                <p>15 Đông Đô,Thị trấn Liên Nghĩa,Đức Trọng, Lâm Đồng </p>
+      <div class="form">
+        <form action="#" method="POST" class="sub_form">
+          <div class="upper-form">
+            <h2>Đăng Kí Thông Tin</h2>
+            <label> Họ và tên bé</label><br>
+            <input type="text" name="name_child"><br>
+            <label>Số tuổi của bé</label><br>
+            <input type="text" name="age"><br>
+            <label>Họ tên phụ huynh</label><br>
+            <input type="text" name="name_parent"><br>
+            <label>Số điện thoại phụ huynh</label><br>
+            <input type="text" name="phone"><br>
+            <label>E-mail</label><br>
+            <input type="text" name="email"><br>
+            <label>Địa chỉ nhà</label><br>
+            <input type="text" name="adress"><br>
+            <label>Tin nhắn</label><br>
+            <textarea type="text" name="content" placeholder="Nhập tối đa 1000 kí tự"
+                style="display: flex;
+                      border-radius: 50px;
+                      border-style: none;
+                      outline: none;
+                      margin-top: 8px;
+                      padding: 12px 24px;
+                      width: 400px;
+                      height:100px;
+                      background-color: #EAEEED;"> 
+            </textarea><br><br>
+            <div class="btn">
+              <button onclick="showSuccessMessage()" name="guithongtin" type="submit">Gửi Thông Tin</button><br>
             </div>
-        </div>
-        <div class="icon_list">
-            <div class="location">
-                <i class="ti-mobile"></i><b>Hotline</b>
-                <p> 0839395292 - 0984409097 </p>
-            </div>
-        </div>
-        <div class="icon_list_1">
-            <div class="location">
-                <i class="ti-time"></i><b>Thời gian Hoạt động</b>
-                <p> Time: 7g - 16g </p>
-            </div>
-        </div>
-    </div>
-    <div id="map">
-      <iframe style="width: 100%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3906.4399091553896!2d108.36611797489739!3d11.73402768847904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317146d2a3cc6a9b%3A0x71293e21e1fa319c!2zMTUgxJDDtG5nIMSQw7QsIExpw6puIE5naMSpYSwgxJDhu6ljIFRy4buNbmcsIEzDom0gxJDhu5NuZywgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1705373948566!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    
+          </div>
+        </form>
+      </div>
+      <video autoplay src="img/TruongManNonAnLanh.mp4" type="video/mp4" loop ></video>
   </div>
+</div>
+  <!--  -->
   <div id="footer">
     <div class="subfooter">
       <div class="text_box">
@@ -136,5 +162,20 @@
       />
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+  // Hàm để hiển thị thông báo khi người dùng nhấn vào nút "Gửi Thông Tin"
+  function showSuccessMessage() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Successfully',
+      text: 'Thông tin đã được gửi thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất có thể ♥',
+      onClose: () => {
+    console.log("Thông báo đã đóng!"); 
+      }
+    });
+  }
+  
+</script>
 </body>
 </html>

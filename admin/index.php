@@ -15,10 +15,9 @@
       if($count>0){
         $_SESSION['dangnhap'] = $row_dangnhap['admin_name'];
         $_SESSION['admin_id'] = $row_dangnhap['admin_id'];
-        //Gán giá trị cho
         header('Location: dashboard.php');
       }else {
-        echo '<p style="color:#fff; margin-left: 25px;"> Make sure the email or password you entered is correct. </p>';
+        // echo '<script>var loginFailed = true;</script>';
       }
       
     }
@@ -44,14 +43,16 @@
         <input type="email" placeholder="Email *" required/>
         <input type="password" placeholder="Password *" required/>
         <a class="btn" href="#">
+          
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           Create
         </a>
-        <p class="message">Already registered? <a href="#">Sign In</a></p>
+        <p class="message">Already registered? <a  href="#">Sign In</a></p>
       </form>
+      
       <form class="login-form" action="" method="post">
         <img style="width: 100px;"  src="../img/logo.png" alt="" />
         <h2></i> Login Admin</h2>
@@ -67,6 +68,15 @@
     $('.message a').click(function(){
         $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
     });
+
+    function showSuccessMessage() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Successfully',
+      text: 'Thông tin đã được gửi thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất có thể ♥'
+    });
+  }
+</script>
   </script>
   </body>
 </html>

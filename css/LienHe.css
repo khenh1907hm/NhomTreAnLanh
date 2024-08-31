@@ -193,7 +193,7 @@
 #cover .box_content {
     height: 300px;
     width: 100%;
-    background-image: url(/img/background.png);
+    background-image: url("../img/background.png");
     background-size: cover;
     background-position: center;
     border-radius: 0 0 30% 0;

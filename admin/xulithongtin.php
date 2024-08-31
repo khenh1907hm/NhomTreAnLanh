@@ -1,36 +1,59 @@
+
+
 <?php
     session_start();
     include('../db/connet.php');
-    // if(isset($dangnhap)){
-    //     header('location:xulidanhmuc.php');
-    // }else{
-    //     header('location:dashboard.php');
-    // }
-    $sql_select = mysqli_query($con,"SELECT * FROM tbl_category ORDER BY category_id DESC");
+    if(isset($_GET["login"])) {
+        $dangxuat= $_GET["login"];
+    }else{
+        $dangxuat= '';
+    }
+    if($dangxuat=='dangxuat'){
+        unset( $_SESSION['dangnhap']);
+        header ("location:index.php");
+    }
 
-    //thu moi
-    $sql_number = mysqli_query($con,"SELECT * FROM tbl_dangky ORDER BY register_id DESC");
-
-
+    $sql_select = mysqli_query($con,"SELECT * FROM tbl_dangky ORDER BY register_id DESC");
+    // Đếm tổng số lượng register_id
     $sql_count = mysqli_query($con, "SELECT COUNT(*) AS total FROM tbl_dangky");
     $row_count = mysqli_fetch_assoc($sql_count);
     $total_register = $row_count['total'];
-    //end: thư mới
+    // if(isset($_POST['thembaiviet'])){
+    //     $tenbaiviet=$_POST['tenbaiviet'];
+    //     $tomtat=$_POST['tomtat'];
+    //     $noidung=$_POST['noidung'];
+    //     $hinhanh=$_FILES['hinhanh']['name'];
+    //     $hinhanh_tmp=$_FILES['hinhanh']['tmp_name'];
+    //     $path= '../uploads/';
 
-    if(isset($_POST['themdanhmuc'])){
-        $danhmuc=$_POST['danhmuc'];
-        $sql_insert=mysqli_query($con,"INSERT INTO tbl_category(category_name) value ('$danhmuc')");
-    }elseif(isset( $_POST["capnhatdanhmuc"])){
-        $id_post=$_POST['id_danhmuc'];
-        $danhmuc=$_POST['danhmuc'];
-        $sql_update=mysqli_query($con,"UPDATE tbl_category SET category_name= '$danhmuc' WHERE category_id = '$id_post'" );
-        // header('Location:xuludanhmuc.php');
-    }
+    //     $sql_insert_baiviet=mysqli_query($con,"INSERT INTO tbl_baiviet
+    //     (tenbaiviet,tomtat,noidung,baiviet_image) 
+    //     value ('$tenbaiviet','$tomtat','$noidung','$hinhanh')");
+
+    // move_uploaded_file($hinhanh_tmp,$path.$hinhanh);
+    // }
+    // elseif(isset($_POST["capnhatbaiviet"])) {
+    //     $id_capnhat = $_POST['baiviet_id'];
+    //     $tenbaiviet = $_POST['tenbaiviet'];
+    //     $tomtat = $_POST['tomtat'];
+    //     $noidung = $_POST['noidung'];
+    //     $hinhanh = $_FILES['hinhanh']['name'];
+    //     $hinhanh_tmp = $_FILES['hinhanh']['tmp_name'];
+    //     $path = '../uploads/';
+    
+    //     if ($hinhanh == '') {
+    //         $sql_update_image = "UPDATE tbl_baiviet SET tenbaiviet='$tenbaiviet', tomtat='$tomtat', noidung='$noidung' WHERE baiviet_id='$id_capnhat'";
+    //     } else {
+    //         move_uploaded_file($hinhanh_tmp, $path . $hinhanh);
+    //         $sql_update_image = "UPDATE tbl_baiviet SET tenbaiviet='$tenbaiviet', tomtat='$tomtat', noidung='$noidung', baiviet_image='$hinhanh' WHERE baiviet_id='$id_capnhat'";
+    //     }
+    //     mysqli_query($con, $sql_update_image);
+    //     header('Location:xulibaiviet.php');
+    // }
 
     if(isset($_GET['xoa'])){
         $id=$_GET['xoa'];
-        $sql_delete=mysqli_query($con,"DELETE FROM tbl_category WHERE category_id= '$id'");
-        // header('Location:xuludanhmuc.php');
+        $sql_delete=mysqli_query($con,"DELETE FROM tbl_dangky WHERE register_id= '$id'");
     }
 ?>
 <!DOCTYPE html>
@@ -47,7 +70,7 @@
         }
         <?php
             $i=0;
-            $row_capnhat = mysqli_fetch_array($sql_number);
+            $row_capnhat = mysqli_fetch_array($sql_select);
             $i++;
         ?>
         .number::after{
@@ -85,7 +108,7 @@
             <a class="nav-link " aria-current="page" href="dashboard.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="xulidanhmuc.php">Danh mục</a>
+            <a class="nav-link" href="xulidanhmuc.php">Danh mục</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="xulibaiviet.php" >Bài viết</a>
@@ -94,7 +117,7 @@
             <a class="nav-link" href="xulilienhe.php" >Liên Hệ</a>
           </li>
           <li class="nav-item number">
-            <a class="nav-link " href="xulithongtin.php" >Thư mới</a>
+            <a class="nav-link active" href="xulithongtin.php" >Thư mới</a>
           </li>
         </ul>
         <div class="user ml-auto" style="color:#fff;">
@@ -104,61 +127,34 @@
       </div>
     </div>
   </nav>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <?php
-            if(isset($_GET['quanli'])=='capnhat'){
-                $id_capnhat= $_GET['id'];
-                $sql_capnhat= mysqli_query($con,"SELECT * FROM tbl_category WHERE category_id= '$id_capnhat'");
-                $row_capnhat = mysqli_fetch_array($sql_capnhat);
-            ?>
-            <div class="col-md-4">
-                <h4>Cập nhật danh mục</h4>
-                <label>Tên danh mục</label>
-                <form action="" method="POST">
-                    <input type="text" name="danhmuc" class="form-control"  value="<?php echo $row_capnhat['category_name'] ?>" ><br>
-                    <input type="hidden" name="id_danhmuc" class="form-control"  value="<?php echo $row_capnhat['category_id'] ?>">
-                    <input type="submit" name="capnhatdanhmuc" value="Cập nhật danh mục" class="btn btn-success" >
-                </form>
-            </div>
-            <?php
-            }else{
-                ?>
-            <div class="col-md-4">
-                <h4>Thêm danh mục</h4>
-                <?php
-                $sql_select= mysqli_query($con,"SELECT * FROM tbl_category ORDER BY category_id DESC")
-                ?>
-                <label>Tên danh mục</label>
-                <form action="" method="POST">
-                    <input type="text" name="danhmuc" class="form-control" placeholder="" ><br>
-                    <input type="submit" name="themdanhmuc" value="Thêm danh mục" class="btn btn-success" >
-                </form>
-            </div>
-            <?php
-            }
-            ?>
-            
-            <div class="col-md-8">
-                <h4>liệt kê danh mục</h4>
+            <div  class="mt-5">
+                <h4>LIỆT KÊ BÀI VIẾT</h4>
                 <table class="table table-responsive table-bordered table-tripped">
                     <tr>
                         <th>STT</th>
-                        <th>Tên Danh Mục</th>
-                        <th>Quản Lí</th>
+                        <th>Thông tin</th>
+                        <th>Nội dung </th>
+                        <th>Trạng Thái</th>
                     </tr>
                     <?php
                     $i=0;
+                    // Reset lại con trỏ dữ liệu sau khi debug
+                    mysqli_data_seek($sql_select, 0);
                     while($row= mysqli_fetch_array($sql_select)){
                         $i++;
                     ?>
                     <tr>
                         <th><?php echo  $i ?></th>
-                        <th><?php echo $row['category_name'] ?></th>
-                        <th class=" d-flex justify-content-center align-items-center"><a style="color:red;text-decoration: none !important;" href="?xoa=<?php echo $row['category_id'] ?>"> Xóa &nbsp; <i class="fa-solid fa-trash"></i></a> &nbsp;&nbsp; ||
-                        &nbsp;&nbsp; <a style="text-decoration: none !important;" href="?quanli=capnhat&id=<?php echo $row['category_id'] ?>"> Cập nhật &nbsp; <i class="fa-regular fa-pen-to-square"></i></a></th>
+                        <th> Tên trẻ: <?php echo $row['name_child'] ?><br> Tuổi(hoặc tháng) :<?php echo $row['age'] ?><br>Tên Phụ Huynh: <?php echo $row['name_parent'] ?><br>Số điện thoại: <?php echo $row['phone'] ?><br> Email : <?php echo $row['email'] ?><br>Địa chỉ: <?php echo $row['adress'] ?></th>
+                        <th><?php  echo $row['content'] ?></th>
+                        <!-- XÓA -->
+                        <th class=" d-flex "><a style="text-decoration: none !important;" href="?xoa=<?php echo $row['register_id'] ?>">  &nbsp; <i style="font-size: 16px; color:green;padding-right:5px" class="fa-regular fa-square-check"></i> Đã đọc </a> 
                     </tr>
-                    <?php } ?>
+                    <?php
+                    }
+                    ?>
                 </table>
             </div>
         </div>
