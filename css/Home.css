@@ -173,7 +173,7 @@
 /* ---------------End:Nav----------- */
 #slider {
     /* position: relative; */
-    background: url(/img/background_1.jpg) top center / cover no-repeat;
+    background: url(img/background_1.jpg) top center / cover no-repeat;
     height: 940px;
     margin-top: 110px;
     width: 100%;
