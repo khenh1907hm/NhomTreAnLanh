@@ -122,8 +122,109 @@
       <!-- Img-employee -->
       <div class="employee">
         <div class="container">
-          <div class="employee-card">
-            <img src="./img/UIface.png" alt="employee" />
+          <h2 class="heading-over">Đội ngũ giáo viên</h2>
+          <div class="employee-slider">
+            <div class="employee-block">
+              <div class="employee-card">
+                <img src="./img/UIface.png" alt="employee 1" />
+              </div>
+              <div class="employee-inf">
+                <h3 class="employee-name">Nguyễn Thị Lành</h3>
+                <p class="employee-desc">
+                  <!-- Mô tả giáo viên 1 -->
+                </p>
+              </div>
+            </div>
+            <div class="employee-block">
+              <div class="employee-card">
+                <img src="./img/UIface2.png" alt="employee 2" />
+              </div>
+              <div class="employee-inf">
+                <h3 class="employee-name">Trần Văn Minh</h3>
+                <p class="employee-desc">
+                  <!-- Mô tả giáo viên 2 -->
+                </p>
+              </div>
+            </div>
+            <div class="employee-block">
+              <div class="employee-card">
+                <img src="./img/UIface3.png" alt="employee 3" />
+              </div>
+              <div class="employee-inf">
+                <h3 class="employee-name">Lê Thị Hương</h3>
+                <p class="employee-desc">
+                  <!-- Mô tả giáo viên 3 -->
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="employee-controls">
+            <button class="prev">&lt;</button>
+            <button class="next">&gt;</button>
+          </div>
+        </div>
+      </div>
+      <div class="contact">
+        <div class="container">
+          <div class="contact-block">
+            <div class="map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3906.439909155389!2d108.366117974833!3d11.734027688479053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317146d2a3cc6a9b%3A0x71293e21e1fa319c!2zMTUgxJDDtG5nIMSQw7QsIExpw6puIE5naMSpYSwgxJDhu6ljIFRy4buNbmcsIEzDom0gxJDhu5NuZywgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1725248530056!5m2!1svi!2s"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <div class="contact-info">
+              <h2>Đăng ký thông tin</h2>
+              <form class="contact-form">
+                <div class="form-group">
+                  <label for="childName">Họ và tên trẻ:</label>
+                  <input type="text" id="childName" name="childName" required />
+                  <label for="childAge">Số tuổi của trẻ:</label>
+                  <input
+                    type="number"
+                    id="childAge"
+                    name="childAge"
+                    min="0"
+                    max="6"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="parentName">Họ tên phụ huynh:</label>
+                  <input
+                    type="text"
+                    id="parentName"
+                    name="parentName"
+                    required
+                  />
+                  <label for="parentPhone">Số điện thoại phụ huynh:</label>
+                  <input
+                    type="tel"
+                    id="parentPhone"
+                    name="parentPhone"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="address">Địa chỉ nhà:</label>
+                  <input type="text" id="address" name="address" required />
+                </div>
+                <div class="form-group">
+                  <label for="message">Tin nhắn:</label>
+                  <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Gửi thông tin</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -132,16 +233,28 @@
         <div class="top-bar">
           <div class="container">
             <div class="support-item">
+              <i class="fas fa-utensils"></i>
+              Ăn sáng
+            </div>
+            <div class="support-item">
+              <i class="far fa-clock"></i>
+              Đón muộn
+            </div>
+            <div class="support-item">
+              <i class="far fa-calendar-alt"></i>
+              Trông thứ 7
+            </div>
+            <div class="support-item">
+              <i class="fas fa-bus"></i>
+              Xe bus đưa đón
+            </div>
+            <div class="support-item">
               <i class="fas fa-phone-alt"></i>
               Hỗ trợ 24/7
             </div>
             <div class="support-item">
-              <i class="fas fa-credit-card"></i>
-              Thanh toán an toàn
-            </div>
-            <div class="support-item">
-              <i class="fas fa-bus"></i>
-              Đưa đón tận nơi
+              <i class="fas fa-heart"></i>
+              Chăm sóc chu đáo
             </div>
           </div>
         </div>
@@ -182,19 +295,28 @@
             <div class="footer-newsletter">
               <h3>Đăng ký nhận thông tin</h3>
               <form>
-                <input type="email" placeholder="Email của bạn" />
+                <input class="email" type="email" placeholder="Email của bạn" />
                 <button type="submit">Đăng ký</button>
               </form>
-              <div class="payment-methods">
-                <img
-                  src="./img/payment-methods.png"
-                  alt="Phương thức thanh toán"
-                />
+              <div class="social-media">
+                <strong>Mạng xã hội</strong>
+                <div class="social-icons">
+                  <a href="#" class="social-icon"
+                    ><i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="#" class="social-icon"
+                    ><i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="#" class="social-icon"
+                    ><i class="fab fa-zalo"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div class="bottom-bar">
+          <hr class="footer-divider" />
           <div class="container">
             <p>
               &copy; Bản quyền thuộc về Trường mầm non An Lành | Thiết kế bởi
@@ -216,6 +338,41 @@
       prev.addEventListener("click", function () {
         let items = document.querySelectorAll(".item");
         document.querySelector(".slide").prepend(items[items.length - 1]); // here the length of items = 6
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".employee-block");
+        const prevButton = document.querySelector(".employee-controls .prev");
+        const nextButton = document.querySelector(".employee-controls .next");
+        let currentSlide = 0;
+        const interval = 5000; // Thời gian chuyển đổi tự động (5 giây)
+
+        function showSlide(index) {
+          slides[currentSlide].classList.remove("active");
+          slides[index].classList.add("active");
+          currentSlide = index;
+        }
+
+        function nextSlide() {
+          let next = (currentSlide + 1) % slides.length;
+          showSlide(next);
+        }
+
+        function prevSlide() {
+          let prev = (currentSlide - 1 + slides.length) % slides.length;
+          showSlide(prev);
+        }
+
+        // Hiển thị slide đầu tiên
+        showSlide(0);
+
+        // Thiết lập chuyển đổi tự động
+        setInterval(nextSlide, interval);
+
+        // Xử lý sự kiện nút điều khiển
+        nextButton.addEventListener("click", nextSlide);
+        prevButton.addEventListener("click", prevSlide);
       });
     </script>
   </body>
